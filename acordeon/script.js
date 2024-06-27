@@ -1,10 +1,15 @@
+//-----------------------------------------------------------------------------------------------------------------------------------------//
 // 1. Declaro variables 
-const acordeon = document.querySelector(".acordeon");
-const headers = document.querySelectorAll(".acordeon-header");
-const acordeonItems = document.querySelectorAll(".acordeon-item");
+//-----------------------------------------------------------------------------------------------------------------------------------------//
+const acordeon = document.querySelector(".acordeon");               
+const headers = acordeon.querySelectorAll(".acordeon-header");                          //--> optimización: etiqueta hija con contenedor.querySelector
+const acordeonItems = acordeon.querySelectorAll(".acordeon-item");                      //--> optimización: etiqueta hija con contenedor.querySelector
 
+
+//-----------------------------------------------------------------------------------------------------------------------------------------//
 // 2. Funciones: 
-// foreach en los headers 
+//-----------------------------------------------------------------------------------------------------------------------------------------//
+// FOREACH: en los headers 
 headers.forEach(header => {
     //eventListener al hacer click 
     header.addEventListener("click", () => {
@@ -22,20 +27,24 @@ headers.forEach(header => {
 
     });
 
-//Event listener de mouseover y mouseout, con clase de sombreado.
-    header.addEventListener("mouseover", () => {
-        header.classList.add("sombreado");
-    });
+//EVENT LISTENER de mouseover y mouseout, con clase de sombreado.
+    header.addEventListener("mouseover", () =>  header.classList.add("sombreado"));     //--> función arrow sintetizada quitando {}
+    header.addEventListener("mouseout", () => header.classList.remove("sombreado"));    //--> función arrow sintetizada quitando {}
 
-    header.addEventListener("mouseout", () => {
-        header.classList.remove("sombreado");
-    });
-    
+//Otro tipo de optimización con Funciones Handler también válida 
 
+// ------ para el mouseover
+    // const headerHandler = () => header.classList.add("sombreado")
+    // header.addEventListener("mouseover", headerHandler);
+
+// ------ para el mouseout
+    // const miheaderHandler = () => header.classList.remove("sombreado")
+    // header.addEventListener("mouseout", headerHandler);
  
 
 
 });
-
+//-----------------------------------------------------------------------------------------------------------------------------------------//
 // 3. Ejecutamos codigo
+//-----------------------------------------------------------------------------------------------------------------------------------------//
 acordeonItems[0].classList.add('active');

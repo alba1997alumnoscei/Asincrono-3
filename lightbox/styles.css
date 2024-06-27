@@ -58,14 +58,17 @@ body {
     justify-content: center;
     align-items: center;
     box-shadow: 0px 4px 8px rgba(106, 105, 105, 0.9); 
-    transition: opacity 0.3s ease, transform 0.3s ease;
+   
 }
 
 /*imagen del segundo DIV*/
 .grande img {
     max-width: 90%;
     max-height: 90%;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(106, 105, 105, 0.9);
+   
+
+    
 }
 
 /*----------------------------------------------------------------------------------------------------*/
